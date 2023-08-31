@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -x # echo on
+
+# git clone -b mpw-8c https://github.com/efabless/caravel_user_project
+# cd caravel_user_project
+git log -1 2>&1 | tee mpw-8c-git-log.log
+mkdir dependencies
+export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
+export PDK_ROOT=$(pwd)/dependencies/pdks
+export PDK=sky130A
+
+make setup 2>&1 | tee mpw-8c-make-steup.log
+
+# Run RTL simulation
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/user_proj_example/user_proj_example.v ~/workspace/fsic/caravel_user_project/verilog/rtl/user_proj_example.v
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1.c ~/workspace/fsic/caravel_user_project/verilog/dv/la_test1/la_test1.c
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v ~/workspace/fsic/caravel_user_project/verilog/dv/la_test1/la_test1_tb.v
+make simenv
+SIM=RTL
+make verify-la_test1-rtl 2>&1 | tee mpw-8c-verify-la_test1-rtl.log
+
+# Run Openlane to generate RTL netlist
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/user_proj_example/config.json ~/workspace/fsic/caravel_user_project/openlane/user_proj_example/config.json
+cd openlane
+make user_proj_example 2>&1 | tee mpw-8c-user_proj_example.log
+make user_project_wrapper 2>&1 | tee mpw-8c-user_project_wrapper.log
+
+cd ..
+# Run gate level simulation (it will take 2~3 hours@i9/64GB)
+SIM=GL
+make verify-la_test1-gl 2>&1 | tee mpw-8c-verify-la_test1-gl.log
+
+# Run gate level static timing verifier
+make setup-timing-scripts 2>&1 | tee mpw-8c-setup-timing-scripts.log
+make extract-parasitics 2>&1 | tee mpw-8c-extract-parasitics.log
+make create-spef-mapping 2>&1 | tee mpw-8c-create-spef-mapping.log
+make caravel-sta 2>&1 | tee mpw-8c-caravel-sta.log
+
+# Run MPW precheck
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/mpw_precheck/README.md  ~/workspace/fsic/caravel_user_project/README.md
+cp ~/workspace/fsic/caravel-lab/custom_design/gcd/mpw_precheck/user_defines.v  ~/workspace/fsic/caravel_user_project/rtl/user_defines.v
+make precheck 2>&1 | tee mpw-8c-precheck.log
+make run-precheck 2>&1 | tee mpw-8c-run-precheck.log
+~

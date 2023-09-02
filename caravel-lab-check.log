@@ -1,0 +1,39 @@
+Setup caravel_user_project
+$ git clone -b mpw-8c https://github.com/efabless/caravel_user_project ~/caravel_user_project     # setup-caravel_user_project.log
+$ cd ~/caravel_user_project
+$ mkdir dependencies
+$ export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
+$ export PDK_ROOT=$(pwd)/dependencies/pdks
+$ export PDK=sky130A
+$ make setup
+
+Run RTL simulation
+$ cp ~/caravel-lab/custom_design/gcd/user_proj_example/user_proj_example.v ~/caravel_user_project/verilog/rtl/user_proj_example.v
+$ cp ~/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1.c ~/caravel_user_project/verilog/dv/la_test1/la_test1.c
+$ cp ~/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v ~/caravel_user_project/verilog/dv/la_test1/la_test1_tb.v
+$ make simenv     # run-rtl-simulation.log
+$ SIM=RTL
+$ make verify-la_test1-rtl
+
+Run Openlane to generate RTL netlist
+$ cp ~/caravel-lab/custom_design/gcd/user_proj_example/config.json ~/caravel_user_project/openlane/user_proj_example/config.json
+$ cd openlane
+$ make user_proj_example    # run-openlane-to-generate-rtl-netlist.log
+$ make user_project_wrapper
+
+Run gate level simulation (it will take 2~3 hours@i9/64GB)
+$ cd ..
+$ SIM=GL
+$ make verify-la_test1-gl
+
+Run gate level static timing verifier
+$ make setup-timing-scripts   # run-gate-level-static-timing-verifier.log
+$ make extract-parasitics
+$ make create-spef-mapping
+$ make caravel-sta
+
+Run MPW precheck
+$ cp ~/caravel-lab/custom_design/gcd/mpw_precheck/README.md ~/caravel_user_project/README.md
+$ cp ~/caravel-lab/custom_design/gcd/mpw_precheck/user_defines.v  ~/caravel_user_project/verilog/rtl/user_defines.v
+$ make precheck
+$ make run-precheck   # run-mpw-precheck.log

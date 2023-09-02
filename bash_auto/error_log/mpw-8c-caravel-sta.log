@@ -1,0 +1,121 @@
+make[1]: Entering directory '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts'
+mkdir -p /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/logs/top
+docker run --rm -e PROJECT_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -e BLOCK=caravel -e PDK=sky130A -e LIB_CORNER=t -e RCX_CORNER=nom -e MCW_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper -e SPEF_OVERWRITE="" -e CUP_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -e CARAVEL_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel -e TIMING_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts -e PDK_REF_PATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/ -e PDK_TECH_PATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.tech/ -e ALLOW_MISSING_SPEF=1 -e TIMING_USER_REPORTS=1 -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel -v /home/tonyho:/home/tonyho -u 1000:1000 efabless/openlane:2022.11.19 bash -c "set -eo pipefail && sta -no_splash -exit /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts/scripts/openroad/timing_top.tcl |& tee /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/logs/top/caravel-timing-$(basename t)-nom.log"
+pdk(libs) defined as:
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/lib/sky130_fd_sc_hvl__tt_025C_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/lib/sky130_fd_sc_hvl__tt_025C_3v30_lv1v80.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_gpiov2_tt_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_ground_hvc_wpad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_ground_lvc_wpad_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_power_lvc_wpad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_xres4v2_tt_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_tt_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vdda_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssa_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vddio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped3_pad_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped3_pad_tt_025C_1v80_3v30_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped_pad_tt_025C_1v80_3v30.lib
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib
+pdk(lefs) defined as:
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/techlef/sky130_fd_sc_hvl__nom.tlef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lef/sky130_fd_io.lef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lef/sky130_ef_io.lef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/lef/sky130_fd_sc_hvl.lef
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_sram_macros/lef/sky130_sram_2kbyte_1rw1r_32x512_8.lef
+verilog exception: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/__user_analog_project_wrapper.v
+removing /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/__user_analog_project_wrapper.v from verilogs list
+verilog exception: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravel-signoff.v
+removing /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravel-signoff.v from verilogs list
+verilog exception: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravan-signoff.v
+removing /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravan-signoff.v from verilogs list
+verilog exception: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/__user_project_wrapper.v
+removing /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/__user_project_wrapper.v from verilogs list
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/lib/sky130_fd_sc_hvl__tt_025C_3v30.lib
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_sc_hvl/lib/sky130_fd_sc_hvl__tt_025C_3v30_lv1v80.lib
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_gpiov2_tt_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_fd_io__top_gpiov2_tt_tt_025C_1v80_3v30.lib line 33, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_ground_hvc_wpad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_fd_io__top_ground_hvc_wpad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_ground_lvc_wpad_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_fd_io__top_ground_lvc_wpad_tt_025C_1v80_3v30.lib line 43, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_power_lvc_wpad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_fd_io__top_power_lvc_wpad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_fd_io__top_xres4v2_tt_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_fd_io__top_xres4v2_tt_tt_025C_1v80_3v30.lib line 33, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_tt_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_tt_tt_025C_1v80_3v30.lib line 33, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vdda_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vdda_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssa_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssa_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vddio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vddio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped3_pad_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped3_pad_tt_025C_1v80_3v30.lib line 43, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped3_pad_tt_025C_1v80_3v30_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped3_pad_tt_025C_1v80_3v30_3v30.lib line 42, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped_pad_tt_025C_1v80_3v30.lib
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssd_lvc_clamped_pad_tt_025C_1v80_3v30.lib line 43, default_fanout_load is 0.0.
+exec> read_liberty /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A/libs.ref//sky130_sram_macros/lib/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/gl/RAM256.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/gl/mgmt_core_wrapper.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/gl/RAM128.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_defaults_block.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravel_clocking.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/mprj_logic_high.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/spare_logic_block.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/buff_flash_clkrst.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/chip_io_alt.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravan.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/caravel.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/chip_io.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/mprj2_logic_high.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_control_block.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/mgmt_protect_hv.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_defaults_block_0403.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/housekeeping.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/user_id_programming.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_signal_buffering_alt.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_signal_buffering.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_defaults_block_0801.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/digital_pll.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_logic_high.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/mgmt_protect.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/xres_buf.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/constant_block.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/gl/gpio_defaults_block_1803.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_project_wrapper.nl.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_project_wrapper.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.v
+exec> read_verilog /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v
+exec> link_design caravel
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 47, module sky130_fd_sc_hd__fill_4 not found. Creating black box for FILLER_1_0.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 49, module sky130_fd_sc_hvl__fill_2 not found. Creating black box for FILLER_0_28.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 55, module sky130_fd_sc_hd__fill_8 not found. Creating black box for FILLER_1_8.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 55, module sky130_fd_sc_hvl__fill_1 not found. Creating black box for FILLER_0_30.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 1339, module sky130_ef_io__corner_pad not found. Creating black box for \mgmt_corner[0] .
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 2636, module sky130_fd_sc_hd__tapvpwrvgnd_1 not found. Creating black box for TAP_66.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 3762, module sky130_fd_sc_hd__fill_2 not found. Creating black box for FILLER_0_11.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 3766, module sky130_ef_sc_hd__decap_12 not found. Creating black box for FILLER_0_14.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 3770, module sky130_fd_sc_hd__fill_1 not found. Creating black box for FILLER_0_27.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_proj_example.nl.v line 5076, module simple_por not found. Creating black box for por.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_project_wrapper.v line 57, instance mprj port vccd1 not found.
+Warning: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/gl/user_project_wrapper.v line 57, instance mprj port vssd1 not found.
+exec> read_spef /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/signoff/caravel/openlane-signoff/spef/caravel.nom.spef
+exec> read_spef -path chip_core/soc.core.RAM128 /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/signoff/RAM128/openlane-signoff/spef/RAM128.nom.spef
+Error: timing_top.tcl line 60, path instance 'chip_core/soc.core.RAM128' not found.
+make[1]: *** [/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts/timing.mk:244: caravel-timing-typ-nom] Error 1
+make[1]: Leaving directory '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/deps/timing-scripts'
+make: *** [Makefile:321: caravel-sta] Error 2

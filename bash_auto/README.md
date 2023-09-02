@@ -10,8 +10,13 @@ export MF=/home/tonyho/workspace/debug/d3_caravel_user_project
 ```
 - change to your path
 
-4. execution d3_caravel_user_project
+4. create your main folder
 ```
-$ ~/d3_caravel_user_project 2>&1 | tee run_clone_d3.log
+$ mkdir /home/tonyho/workspace/debug/d3_caravel_user_project
+```
+
+5. execution run_clone_d3_caravel_user_project
+```
+$ ~/run_clone_d3_caravel_user_project 2>&1 | tee run_clone_d3.log
 ```
 

@@ -37,18 +37,18 @@ cp $CLF/custom_design/gcd/user_proj_example/user_proj_example.v $CUPF/verilog/rt
 cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1/la_test1.c
 cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v $CUPF/verilog/dv/la_test1/la_test1_tb.v
 make simenv 2>&1 | tee $LF/mpw-8c-simenv.log
-export SIM=RTL
+#export SIM=RTL
 make verify-la_test1-rtl 2>&1 | tee $LF/mpw-8c-verify-la_test1-rtl.log
 
 # Run Openlane to generate RTL netlist
 cp $CLF/custom_design/gcd/user_proj_example/config.json $CUPF/openlane/user_proj_example/config.json
-cd openlane
+#cd openlane
 make user_proj_example 2>&1 | tee $LF/mpw-8c-user_proj_example.log
 make user_project_wrapper 2>&1 | tee $LF/mpw-8c-user_project_wrapper.log
 
 # Run gate level simulation (it will take 2~3 hours@i9/64GB)
-cd ..
-export SIM=GL
+#cd ..
+#export SIM=GL
 make verify-la_test1-gl 2>&1 | tee $LF/mpw-8c-verify-la_test1-gl.log
 
 # Run gate level static timing verifier

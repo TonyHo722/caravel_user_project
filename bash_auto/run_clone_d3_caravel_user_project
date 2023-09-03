@@ -6,7 +6,7 @@ set -x # echo on for debug
 export MF=/home/tonyho/workspace/debug/d3_caravel_user_project
 
 # setup your log floder(LF)
-export LF=$MF/log-0903-make-d
+export LF=$MF/log-0903-update-timing_top
 # setup your caravel-lab floder(CLF)
 export CLF=$MF/caravel-lab
 # setup your caravel_user_project floder(CUPF)
@@ -55,6 +55,10 @@ make -d verify-la_test1-gl 2>&1 | tee $LF/mpw-8c-verify-la_test1-gl.log
 make -d setup-timing-scripts 2>&1 | tee $LF/mpw-8c-setup-timing-scripts.log
 make -d extract-parasitics 2>&1 | tee $LF/mpw-8c-extract-parasitics.log
 make -d create-spef-mapping 2>&1 | tee $LF/mpw-8c-create-spef-mapping.log
+
+## patch caravel-sta fail issue
+cp ~/workspace/fsic/git_caravel_user_project/deps/timing-scripts/scripts/openroad/timing_top.tcl $CUPF/deps/timing-scripts/scripts/openroad/timing_top.tcl
+
 make -d caravel-sta 2>&1 | tee $LF/mpw-8c-caravel-sta.log
 
 # Run MPW precheck

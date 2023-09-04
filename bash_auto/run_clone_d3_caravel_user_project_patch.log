@@ -268,3 +268,48 @@ GPIO-DEFINES: Checking verilog/rtl/user_defines.v, parsing files: ['/home/tonyho
 GPIO-DEFINES report path: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/gpio_defines.report
 {{GPIO-DEFINES CHECK PASSED}} The user verilog/rtl/user_defines.v is valid.
 {{STEP UPDATE}} Executing Check 7 of 14: XOR
+{{XOR CHECK UPDATE}} Total XOR differences: 0, for more details view /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/user_project_wrapper.xor.gds
+{{XOR CHECK PASSED}} The GDS file has no XOR violations.
+{{STEP UPDATE}} Executing Check 8 of 14: Magic DRC
+Found 0 violations
+0 DRC violations
+{{MAGIC DRC CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 9 of 14: Klayout FEOL
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_feol_check.xml -rd feol=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_feol_check.log
+No DRC Violations found
+{{Klayout FEOL CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 10 of 14: Klayout BEOL
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_beol_check.xml -rd beol=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_beol_check.log
+No DRC Violations found
+{{Klayout BEOL CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 11 of 14: Klayout Offgrid
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_offgrid_check.xml -rd offgrid=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_offgrid_check.log
+No DRC Violations found
+{{Klayout Offgrid CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 12 of 14: Klayout Metal Minimum Clear Area Density
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/met_min_ca_density.lydrc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_met_min_ca_density_check.xml >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_met_min_ca_density_check.log
+No DRC Violations found
+{{Klayout Metal Minimum Clear Area Density CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 13 of 14: Klayout Pin Label Purposes Overlapping Drawing
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/pin_label_purposes_overlapping_drawing.rb.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_pin_label_purposes_overlapping_drawing_check.xml -rd top_cell_name=user_project_wrapper >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_pin_label_purposes_overlapping_drawing_check.log
+No DRC Violations found
+{{Klayout Pin Label Purposes Overlapping Drawing CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{STEP UPDATE}} Executing Check 14 of 14: Klayout ZeroArea
+in CUSTOM klayout_gds_drc_check
+run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/zeroarea.rb.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/klayout_zeroarea_check.xml -rd cleaned_output=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/user_project_wrapper_no_zero_areas.gds >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/klayout_zeroarea_check.log
+No DRC Violations found
+{{Klayout ZeroArea CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
+{{FINISH}} Executing Finished, the full log 'precheck.log' can be found in '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs'
+{{SUCCESS}} All Checks Passed !!!
+Generating LALR tables
+WARNING: 183 shift/reduce conflicts
+Reaping winning child 0x55d808ba0420 PID 2843442 
+Removing child 0x55d808ba0420 PID 2843442 from chain.
+Successfully remade target file 'run-precheck'.
++ /home/tonyho
+./run_clone_d3_caravel_user_project_patch: line 71: /home/tonyho: Is a directory

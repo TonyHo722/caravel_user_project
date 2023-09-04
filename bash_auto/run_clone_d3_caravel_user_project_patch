@@ -6,9 +6,9 @@ set -x # echo on for debug
 export MF=/home/tonyho/workspace/debug/d3_caravel_user_project
 
 # setup your PRECHECK_ROOT 
-export PRECHECK_ROOT=$MF/mpw_precheck
+export PRECHECK_ROOT=$MF/mpw_precheck-A
 # setup your log floder(LF)
-export LF=$MF/log-0904-docker-2
+export LF=$MF/log-0904-docker-A
 # setup your caravel-lab floder(CLF)
 export CLF=$MF/caravel-lab
 # setup your caravel_user_project floder(CUPF)

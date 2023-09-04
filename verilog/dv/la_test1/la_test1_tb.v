@@ -19,7 +19,7 @@
 
 module la_test1_tb;
 	reg clock;
-    reg RSTB;
+        reg RSTB;
 	reg CSB;
 
 	reg power1, power2;
@@ -156,10 +156,35 @@ module la_test1_tb;
 
 	initial begin
 		wait(checkbits == 16'hAB40);
-		$display("LA Test 1 started");
+		$display("LA Test seq_gcd(10312050, 29460792)=138 started");
 		wait(checkbits == 16'hAB41);
 		wait(checkbits == 16'hAB51);
-		$display("LA Test 2 passed");
+		$display("LA Test seq_gcd(10312050, 29460792)=138 passed");
+		
+		wait(checkbits == 16'hAB40);
+		$display("LA Test seq_gcd(1993627629, 1177417612)=7 started");
+		wait(checkbits == 16'hAB41);
+		wait(checkbits == 16'hAB51);
+		$display("LA Test seq_gcd(1993627629, 1177417612)=7 passed");
+		
+		wait(checkbits == 16'hAB40);
+		$display("LA Test seq_gcd(2097015289, 3812041926)=1 started");
+		wait(checkbits == 16'hAB41);
+		wait(checkbits == 16'hAB51);
+		$display("LA Test seq_gcd(2097015289, 3812041926)=1 passed");
+		
+		wait(checkbits == 16'hAB40);
+		$display("LA Test seq_gcd(1924134885, 3151131255)=135 started");
+		wait(checkbits == 16'hAB41);
+		wait(checkbits == 16'hAB51);
+		$display("LA Test seq_gcd(1924134885, 3151131255)=135 passed");
+		
+		wait(checkbits == 16'hAB40);
+		$display("LA Test seq_gcd(992211318, 512609597)=1 started");
+		wait(checkbits == 16'hAB41);
+		wait(checkbits == 16'hAB51);
+		$display("LA Test seq_gcd(992211318, 512609597)=1 passed");
+		
 		#10000;
 		$finish;
 	end

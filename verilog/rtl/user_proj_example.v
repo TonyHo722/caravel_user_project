@@ -77,11 +77,12 @@ module user_proj_example #(
 
     wire [31:0] rdata; 
     wire [31:0] wdata;
-    wire [BITS-1:0] count;
+    wire [BITS-1:0] gcd_o;
 
     wire valid;
     wire [3:0] wstrb;
-    wire [31:0] la_write;
+    wire [31:0] la_write_a;
+    wire [31:0] la_write_b;
 
     // WB MI A
     assign valid = wbs_cyc_i && wbs_stb_i; 
@@ -90,76 +91,113 @@ module user_proj_example #(
     assign wdata = wbs_dat_i;
 
     // IO
-    assign io_out = count;
+    assign io_out = gcd_o;
     assign io_oeb = {(`MPRJ_IO_PADS-1){rst}};
 
     // IRQ
     assign irq = 3'b000;	// Unused
 
     // LA
-    assign la_data_out = {{(127-BITS){1'b0}}, count};
-    // Assuming LA probes [63:32] are for controlling the count register  
-    assign la_write = ~la_oenb[63:32] & ~{BITS{valid}};
-    // Assuming LA probes [65:64] are for controlling the count clk & reset  
+    assign la_data_out = {{(127-BITS){1'b0}}, gcd_o};	
+    // Assuming LA probes [63:32] and [31:0] are for controlling the seq_gcd register  
+    assign la_write_a = ~la_oenb[31:0] & ~{BITS{valid}};
+    assign la_write_b = ~la_oenb[63:32] & ~{BITS{valid}};
+    // Assuming LA probes [65:64] are for controlling the seq_gcd clk & reset  
     assign clk = (~la_oenb[64]) ? la_data_in[64]: wb_clk_i;
-    assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;
-
-    counter #(
-        .BITS(BITS)
-    ) counter(
-        .clk(clk),
-        .reset(rst),
-        .ready(wbs_ack_o),
-        .valid(valid),
-        .rdata(rdata),
-        .wdata(wbs_dat_i),
-        .wstrb(wstrb),
-        .la_write(la_write),
-        .la_input(la_data_in[63:32]),
-        .count(count)
-    );
+    assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;	
+	
+    seq_gcd seq_gcd(
+    .clk(clk),
+    .rst_n(~rst),        
+    //.load_i(valid),        
+    //.wdata(wbs_dat_i),
+    //.wstrb(wstrb),
+    .la_write_a(la_write_a),
+    .la_write_b(la_write_b),
+    .a_i(la_data_in[31:0]),
+    .b_i(la_data_in[63:32]),
+    .gcd_o(gcd_o),
+    .rdata(rdata),
+    .ready(wbs_ack_o)
+    );	
 
 endmodule
 
-module counter #(
-    parameter BITS = 32
-)(
-    input clk,
-    input reset,
-    input valid,
-    input [3:0] wstrb,
-    input [BITS-1:0] wdata,
-    input [BITS-1:0] la_write,
-    input [BITS-1:0] la_input,
-    output ready,
-    output [BITS-1:0] rdata,
-    output [BITS-1:0] count
+     
+module seq_gcd (
+        clk,
+        rst_n,        
+	la_write_a,
+	la_write_b,
+        a_i,
+        b_i,
+        gcd_o,
+	rdata,        
+	ready
 );
-    reg ready;
-    reg [BITS-1:0] count;
-    reg [BITS-1:0] rdata;
-
-    always @(posedge clk) begin
-        if (reset) begin
-            count <= 0;
-            ready <= 0;
-        end else begin
-            ready <= 1'b0;
-            if (~|la_write) begin
-                count <= count + 1;
-            end
-            if (valid && !ready) begin
-                ready <= 1'b1;
-                rdata <= count;
-                if (wstrb[0]) count[7:0]   <= wdata[7:0];
-                if (wstrb[1]) count[15:8]  <= wdata[15:8];
-                if (wstrb[2]) count[23:16] <= wdata[23:16];
-                if (wstrb[3]) count[31:24] <= wdata[31:24];
-            end else if (|la_write) begin
-                count <= la_write & la_input;
-            end
+        input wire clk;
+        input wire rst_n;        
+	input wire [31:0] la_write_a;
+	input wire [31:0] la_write_b;
+        input wire [31:0] a_i;
+        input wire [31:0] b_i;
+        output reg [31:0] gcd_o;
+	output reg [31:0] rdata;        
+	output reg ready;
+        reg [31:0] a_q;
+        reg [31:0] b_q;
+        wire [31:0] a_muxed;
+        wire [31:0] b_muxed;
+	wire la_load;
+	reg done_o;
+        reg CS;
+        reg NS;
+        reg load_int;		
+        always @(posedge clk or negedge rst_n) begin : proc_seq
+                if (~rst_n) begin
+                        a_q <= 0;
+                        b_q <= 0;
+			gcd_o <= 0;
+			rdata <= 0;
+			ready <= 0;
+                end
+                else begin
+                        a_q <= a_muxed;
+                        b_q <= b_muxed;
+			if (done_o) gcd_o <= a_q;
+                end
         end
-    end
-
-endmodule
+        //assign gcd_o = a_q;
+	assign la_load = (&la_write_a)&(&la_write_b);
+        assign a_muxed = (load_int ? a_i : b_q);
+        assign b_muxed = (load_int ? b_i : a_q % b_q);		
+        always @(posedge clk or negedge rst_n) begin : proc_update_state
+                if (~rst_n)
+                        CS <= 1'd0;
+                else
+                        CS <= NS;				
+        end
+        always @(*) begin : proc_compute_NS
+                load_int = 1'b0;
+                done_o = 1'b0;
+                case (CS)
+                        1'd0: begin
+                                done_o = 1'b0;
+                                load_int = la_load;
+                                if (la_load)
+                                        NS = 1'd1;
+                                else
+                                        NS = 1'd0;
+                        end
+                        1'd1: begin
+                                load_int = 1'b0;
+                                done_o = b_q == 0;
+                                if (b_q == 0)
+                                        NS = 1'd0;
+                                else
+                                        NS = 1'd1;
+                        end
+                endcase
+        end
+endmodule   
 `default_nettype wire

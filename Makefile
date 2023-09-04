@@ -213,8 +213,8 @@ uninstall:
 # Default installs to the user home directory, override by "export PRECHECK_ROOT=<precheck-installation-path>"
 .PHONY: precheck
 precheck:
-	@git clone --depth=1 --branch $(MPW_TAG) https://github.com/efabless/mpw_precheck.git $(PRECHECK_ROOT)
-	@docker pull efabless/mpw_precheck:mpw8c
+	git clone --depth=1 --branch $(MPW_TAG) https://github.com/efabless/mpw_precheck.git $(PRECHECK_ROOT)
+	docker pull efabless/mpw_precheck:mpw8c
 
 .PHONY: run-precheck
 run-precheck: check-pdk check-precheck
@@ -244,13 +244,13 @@ check-caravel:
 	fi
 
 check-precheck:
-	@if [ ! -d "$(PRECHECK_ROOT)" ]; then \
+	if [ ! -d "$(PRECHECK_ROOT)" ]; then \
 		echo "Pre-check Root: "$(PRECHECK_ROOT)" doesn't exists, please export the correct path before running make. "; \
 		exit 1; \
 	fi
 
 check-pdk:
-	@if [ ! -d "$(PDK_ROOT)" ]; then \
+	if [ ! -d "$(PDK_ROOT)" ]; then \
 		echo "PDK Root: "$(PDK_ROOT)" doesn't exists, please export the correct path before running make. "; \
 		exit 1; \
 	fi

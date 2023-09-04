@@ -2,28 +2,28 @@
 + MF=/home/tonyho/workspace/debug/d3_caravel_user_project
 + export PRECHECK_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A
 + PRECHECK_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A
-+ export LF=/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A
-+ LF=/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A
++ export LF=/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2
++ LF=/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2
 + export CLF=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab
 + CLF=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab
 + export CUPF=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project
 + CUPF=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project
 + cd /home/tonyho/workspace/debug/d3_caravel_user_project
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project ']'
-+ '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A ']'
-+ echo '/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A not exist, create it'
-/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A not exist, create it
-+ mkdir /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A
++ '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2 ']'
++ echo '/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2 not exist, create it'
+/home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2 not exist, create it
++ mkdir /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab ']'
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project ']'
 + cd /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project
 + git log -1
-+ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A/mpw-8c-git-log.log
-commit c6a9a20a038590bf950f03fe776a25075f9e0af2
++ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2/mpw-8c-git-log.log
+commit 3d80535940be5cf4281f62095bd59ccff2dbc1b3
 Author: tonyho <TonyHo@via.com.tw>
-Date:   Mon Sep 4 12:18:26 2023 +0800
+Date:   Mon Sep 4 17:38:09 2023 +0800
 
-    remove @ for show debug message
+    roll back to docker pull efabless/mpw_precheck:latest. TAG=mpw8c can not found in docker server
 + mkdir dependencies
 mkdir: cannot create directory ‘dependencies’: File exists
 ++ pwd
@@ -41,7 +41,7 @@ mkdir: cannot create directory ‘dependencies’: File exists
 + cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/mpw_precheck/README.md /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/README.md
 + cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/mpw_precheck/user_defines.v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/rtl/user_defines.v
 + make -d precheck
-+ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A/mpw-8c-precheck.log
++ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2/mpw-8c-precheck.log
 GNU Make 4.2.1
 Built for x86_64-pc-linux-gnu
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -63,35 +63,14 @@ Considering target file 'precheck'.
  Finished prerequisites of target file 'precheck'.
 Must remake target 'precheck'.
 git clone --depth=1 --branch mpw-8c https://github.com/efabless/mpw_precheck.git /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A
-Putting child 0x56544895f690 (precheck) PID 2624816 on the chain.
-Live child 0x56544895f690 (precheck) PID 2624816 
-Cloning into '/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A'...
-Note: switching to 'a8a54b74961a43f3a7b85d44843ae2adbc93b233'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
-Reaping winning child 0x56544895f690 PID 2624816 
-docker pull efabless/mpw_precheck:mpw8c
-Live child 0x56544895f690 (precheck) PID 2624847 
-Error response from daemon: manifest for efabless/mpw_precheck:mpw8c not found: manifest unknown: manifest unknown
-Reaping losing child 0x56544895f690 PID 2624847 
-make: *** [Makefile:217: precheck] Error 1
-Removing child 0x56544895f690 PID 2624847 from chain.
+Putting child 0x55775dd3d6b0 (precheck) PID 2843404 on the chain.
+Live child 0x55775dd3d6b0 (precheck) PID 2843404 
+fatal: destination path '/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A' already exists and is not an empty directory.
+Reaping losing child 0x55775dd3d6b0 PID 2843404 
+make: *** [Makefile:216: precheck] Error 128
+Removing child 0x55775dd3d6b0 PID 2843404 from chain.
 + make -d run-precheck
-+ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A/mpw-8c-run-precheck.log
++ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-0904-docker-A-2/mpw-8c-run-precheck.log
 GNU Make 4.2.1
 Built for x86_64-pc-linux-gnu
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -118,10 +97,10 @@ if [ ! -d "/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_pro
 	echo "PDK Root: "/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks" doesn't exists, please export the correct path before running make. "; \
 	exit 1; \
 fi
-Putting child 0x5607f8394830 (check-pdk) PID 2624922 on the chain.
-Live child 0x5607f8394830 (check-pdk) PID 2624922 
-Reaping winning child 0x5607f8394830 PID 2624922 
-Removing child 0x5607f8394830 PID 2624922 from chain.
+Putting child 0x55d808b9a840 (check-pdk) PID 2843429 on the chain.
+Live child 0x55d808b9a840 (check-pdk) PID 2843429 
+Reaping winning child 0x55d808b9a840 PID 2843429 
+Removing child 0x55d808b9a840 PID 2843429 from chain.
   Successfully remade target file 'check-pdk'.
   Considering target file 'check-precheck'.
    File 'check-precheck' does not exist.
@@ -131,10 +110,10 @@ if [ ! -d "/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A" 
 	echo "Pre-check Root: "/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A" doesn't exists, please export the correct path before running make. "; \
 	exit 1; \
 fi
-Putting child 0x5607f839a2b0 (check-precheck) PID 2624926 on the chain.
-Live child 0x5607f839a2b0 (check-precheck) PID 2624926 
-Reaping winning child 0x5607f839a2b0 PID 2624926 
-Removing child 0x5607f839a2b0 PID 2624926 from chain.
+Putting child 0x55d808ba02c0 (check-precheck) PID 2843433 on the chain.
+Live child 0x55d808ba02c0 (check-precheck) PID 2843433 
+Reaping winning child 0x55d808ba02c0 PID 2843433 
+Removing child 0x55d808ba02c0 PID 2843433 from chain.
   Successfully remade target file 'check-precheck'.
  Finished prerequisites of target file 'run-precheck'.
 Must remake target 'run-precheck'.
@@ -148,14 +127,14 @@ docker run -v /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-
 -e PDKPATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A \
 -u 1000:1000 \
 efabless/mpw_precheck:mpw8c bash -c "cd /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A ; python3 mpw_precheck.py --input_directory /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project --pdk_path /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks/sky130A"
-Putting child 0x5607f839a410 (run-precheck) PID 2624933 on the chain.
-Live child 0x5607f839a410 (run-precheck) PID 2624933 
+Putting child 0x55d808ba0420 (run-precheck) PID 2843442 on the chain.
+Live child 0x55d808ba0420 (run-precheck) PID 2843442 
 {{EXTRACTING FILES}} Extracting compressed files in: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project
 {{Project Type Info}} digital
 {{Project GDS Info}} user_project_wrapper: aec6d1ef9e018a8c3bc2e0b93b1892d2a8301d26
 {{Tools Info}} KLayout: v0.27.12 | Magic: v8.3.348
 {{PDKs Info}} SKY130A: f70d8ca46961ff92719d8870a18a076370b85f6c | Open PDKs: 0059588eebfc704681dc2368bd1d33d96281d10f
-{{START}} Precheck Started, the full log 'precheck.log' will be located in '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs'
+{{START}} Precheck Started, the full log 'precheck.log' will be located in '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs'
 {{PRECHECK SEQUENCE}} Precheck will run the following checks: [License, Makefile, Default, Documentation, Consistency, GPIO-Defines, XOR, Magic DRC, Klayout FEOL, Klayout BEOL, Klayout Offgrid, Klayout Metal Minimum Clear Area Density, Klayout Pin Label Purposes Overlapping Drawing, Klayout ZeroArea]
 {{STEP UPDATE}} Executing Check 1 of 14: License
 An approved LICENSE (Apache-2.0) was found in /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project.
@@ -263,9 +242,9 @@ SPDX COMPLIANCE FILE UNICODE DECODE EXCEPTION in (/home/tonyho/workspace/debug/d
 SPDX COMPLIANCE FILE UNICODE DECODE EXCEPTION in (/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/openlane/user_proj_example/runs/23_09_02_12_31/results/placement/user_proj_example.odb): 'utf-8' codec can't decode byte 0xb9 in position 16: invalid start byte
 SPDX COMPLIANCE FILE UNICODE DECODE EXCEPTION in (/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/openlane/user_proj_example/runs/23_09_02_12_31/results/routing/user_proj_example.odb): 'utf-8' codec can't decode byte 0xb9 in position 16: invalid start byte
 SPDX COMPLIANCE FILE UNICODE DECODE EXCEPTION in (/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/openlane/user_proj_example/runs/23_09_02_12_31/results/floorplan/user_proj_example.odb): 'utf-8' codec can't decode byte 0xb9 in position 16: invalid start byte
-{{SPDX COMPLIANCE CHECK FAILED}} Found 6790 non-compliant file(s) with the SPDX Standard.
+{{SPDX COMPLIANCE CHECK FAILED}} Found 6789 non-compliant file(s) with the SPDX Standard.
 SPDX COMPLIANCE: NON-COMPLIANT FILE(S) PREVIEW: ['/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/spef/user_project_wrapper.spef', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/spef/user_proj_example.spef', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/spef/multicorner/user_project_wrapper.max.spef', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/spef/multicorner/user_project_wrapper.min.spef', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/spef/multicorner/user_project_wrapper.nom.spef', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/activate.csh', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/activate', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/pip3', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/pip', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/activate.fish', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/Activate.ps1', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/pip3.11', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/bin/pip3.9', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/lib/python3.9/site-packages/distutils-precedence.pth', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/venv/lib/python3.9/site-packages/click/types.py']
-For the full SPDX compliance report check: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/spdx_compliance_report.log
+For the full SPDX compliance report check: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/logs/spdx_compliance_report.log
 {{STEP UPDATE}} Executing Check 2 of 14: Makefile
 {{MAKEFILE CHECK PASSED}} Makefile valid.
 {{STEP UPDATE}} Executing Check 3 of 14: Default
@@ -286,51 +265,6 @@ PORT TYPES CHECK PASSED: Netlist user_project_wrapper port types match the golde
 {{CONSISTENCY CHECK PASSED}} The user netlist and the top netlist are valid.
 {{STEP UPDATE}} Executing Check 6 of 14: GPIO-Defines
 GPIO-DEFINES: Checking verilog/rtl/user_defines.v, parsing files: ['/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/gpio_defines_check/verilog_assets/gpio_modes_base.v', '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/rtl/user_defines.v', '/home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/gpio_defines_check/verilog_assets/gpio_modes_observe.v']
-GPIO-DEFINES report path: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/gpio_defines.report
+GPIO-DEFINES report path: /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___09_39_03/outputs/reports/gpio_defines.report
 {{GPIO-DEFINES CHECK PASSED}} The user verilog/rtl/user_defines.v is valid.
 {{STEP UPDATE}} Executing Check 7 of 14: XOR
-{{XOR CHECK UPDATE}} Total XOR differences: 0, for more details view /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/user_project_wrapper.xor.gds
-{{XOR CHECK PASSED}} The GDS file has no XOR violations.
-{{STEP UPDATE}} Executing Check 8 of 14: Magic DRC
-Found 0 violations
-0 DRC violations
-{{MAGIC DRC CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 9 of 14: Klayout FEOL
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_feol_check.xml -rd feol=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_feol_check.log
-No DRC Violations found
-{{Klayout FEOL CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 10 of 14: Klayout BEOL
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_beol_check.xml -rd beol=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_beol_check.log
-No DRC Violations found
-{{Klayout BEOL CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 11 of 14: Klayout Offgrid
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/tech-files/sky130A_mr.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_offgrid_check.xml -rd offgrid=true >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_offgrid_check.log
-No DRC Violations found
-{{Klayout Offgrid CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 12 of 14: Klayout Metal Minimum Clear Area Density
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/met_min_ca_density.lydrc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_met_min_ca_density_check.xml >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_met_min_ca_density_check.log
-No DRC Violations found
-{{Klayout Metal Minimum Clear Area Density CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 13 of 14: Klayout Pin Label Purposes Overlapping Drawing
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/pin_label_purposes_overlapping_drawing.rb.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_pin_label_purposes_overlapping_drawing_check.xml -rd top_cell_name=user_project_wrapper >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_pin_label_purposes_overlapping_drawing_check.log
-No DRC Violations found
-{{Klayout Pin Label Purposes Overlapping Drawing CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{STEP UPDATE}} Executing Check 14 of 14: Klayout ZeroArea
-in CUSTOM klayout_gds_drc_check
-run: klayout -b -r /home/tonyho/workspace/debug/d3_caravel_user_project/mpw_precheck-A/checks/drc_checks/klayout/zeroarea.rb.drc -rd input=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/gds/user_project_wrapper.gds -rd topcell=user_project_wrapper -rd report=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/reports/klayout_zeroarea_check.xml -rd cleaned_output=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/outputs/user_project_wrapper_no_zero_areas.gds >& /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs/klayout_zeroarea_check.log
-No DRC Violations found
-{{Klayout ZeroArea CHECK PASSED}} The GDS file, user_project_wrapper.gds, has no DRC violations.
-{{FINISH}} Executing Finished, the full log 'precheck.log' can be found in '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/precheck_results/04_SEP_2023___04_28_45/logs'
-{{SUCCESS}} All Checks Passed !!!
-Generating LALR tables
-WARNING: 183 shift/reduce conflicts
-Reaping winning child 0x5607f839a410 PID 2624933 
-Removing child 0x5607f839a410 PID 2624933 from chain.
-Successfully remade target file 'run-precheck'.
-+ /home/tonyho
-./run_clone_d3_caravel_user_project_patch: line 71: /home/tonyho: Is a directory

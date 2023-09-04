@@ -272,8 +272,8 @@ $(TIMING_ROOT):
 
 .PHONY: setup-timing-scripts
 setup-timing-scripts: $(TIMING_ROOT)
-	@( cd $(TIMING_ROOT) && git pull )
-	@#( cd $(TIMING_ROOT) && git fetch && git checkout $(MPW_TAG); )
+	#( cd $(TIMING_ROOT) && git pull )
+	( cd $(TIMING_ROOT) && git fetch && git checkout $(MPW_TAG); )
 	@python3 -m venv ./venv 
 		. ./venv/bin/activate && \
 		python3 -m pip install --upgrade pip && \

@@ -214,7 +214,7 @@ uninstall:
 .PHONY: precheck
 precheck:
 	@git clone --depth=1 --branch $(MPW_TAG) https://github.com/efabless/mpw_precheck.git $(PRECHECK_ROOT)
-	@docker pull efabless/mpw_precheck:latest
+	@docker pull efabless/mpw_precheck:mpw8c
 
 .PHONY: run-precheck
 run-precheck: check-pdk check-precheck
@@ -228,7 +228,7 @@ run-precheck: check-pdk check-precheck
 	-e PDK_ROOT=$(PDK_ROOT) \
 	-e PDKPATH=$(PDKPATH) \
 	-u $(shell id -u $(USER)):$(shell id -g $(USER)) \
-	efabless/mpw_precheck:latest bash -c "cd $(PRECHECK_ROOT) ; python3 mpw_precheck.py --input_directory $(INPUT_DIRECTORY) --pdk_path $(PDK_ROOT)/$(PDK)"
+	efabless/mpw_precheck:mpw8c bash -c "cd $(PRECHECK_ROOT) ; python3 mpw_precheck.py --input_directory $(INPUT_DIRECTORY) --pdk_path $(PDK_ROOT)/$(PDK)"
 
 
 

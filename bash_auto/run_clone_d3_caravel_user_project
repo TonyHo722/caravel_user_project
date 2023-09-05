@@ -3,12 +3,12 @@
 set -x # echo on for debug 
 
 # setup your main floder(MF)
-export MF=/home/tonyho/workspace/debug/d3_caravel_user_project
+export MF=/home/tonyho/workspace/debug/patch_caravel_user_project
 
 # setup your PRECHECK_ROOT 
-export PRECHECK_ROOT=$MF/mpw_precheck-A
+export PRECHECK_ROOT=$MF/mpw_precheck
 # setup your log floder(LF)
-export LF=$MF/log-0904-docker-B
+export LF=$MF/log-0905
 # setup your caravel-lab floder(CLF)
 export CLF=$MF/caravel-lab
 # setup your caravel_user_project floder(CUPF)
@@ -23,7 +23,7 @@ fi
 
 [ ! -d $LF ] && echo "$LF not exist, create it" && mkdir $LF
 [ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/bol-edu/caravel-lab
-[ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b mpw-8c https://github.com/efabless/caravel_user_project
+[ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b mpw-8c-patch https://github.com/TonyHo722/caravel_user_project
 
 cd $CUPF
 git log -1 2>&1 | tee $LF/mpw-8c-git-log.log

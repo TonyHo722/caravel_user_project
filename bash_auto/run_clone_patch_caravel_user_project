@@ -63,26 +63,26 @@ cp $FFF/rtl/user/mprj_io/rtl/mprj_io.sv $CUPF/verilog/rtl/mprj_io.sv
 cp $FFF/rtl/user/user_subsys/rtl/user_subsys.all.v $CUPF/verilog/rtl/user_subsys.all.v
 
 # how to define USER_PROJ_IRQ0_EN?
-cp $FAF/verif/vsim/tests/system_test114/system_test114.c $CUPF/verilog/dv/system_test114.c
-cp $FAF/verif/vsim/tests/system_test114/top_bench.sv $CUPF/verilog/dv/top_bench.sv
-exit 1
+mkdir $CUPF/verilog/dv/system_test114
+cp $FAF/verif/vsim/tests/system_test114/system_test114.c $CUPF/verilog/dv/system_test114/system_test114.c
+cp $FAF/verif/vsim/tests/system_test114/top_bench.sv $CUPF/verilog/dv/system_test114/top_bench.sv
+mkdir $CUPF/verilog/dv/system_test111
+cp $FAF/verif/vsim/tests/system_test111/system_test111.c $CUPF/verilog/dv/system_test111/system_test111.c
+cp $FAF/verif/vsim/tests/system_test111/top_bench.sv $CUPF/verilog/dv/system_test111/top_bench.sv
 
-cp $CLF/custom_design/gcd/user_proj_example/user_proj_example.v $CUPF/verilog/rtl/user_proj_example.v
-cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1/la_test1.c
-cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v $CUPF/verilog/dv/la_test1/la_test1_tb.v
+#cp $CLF/custom_design/gcd/user_proj_example/user_proj_example.v $CUPF/verilog/rtl/user_proj_example.v
+#cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1/la_test1.c
+#cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v $CUPF/verilog/dv/la_test1/la_test1_tb.v
 make -d simenv 2>&1 | tee $LF/mpw-8c-simenv.log
-#export SIM=RTL
-make -d verify-la_test1-rtl 2>&1 | tee $LF/mpw-8c-verify-la_test1-rtl.log
+make -d verify-system_test111-rtl 2>&1 | tee $LF/mpw-8c-verify-system_test111-rtl.log
+exit 1
 
 # Run Openlane to generate RTL netlist
 cp $CLF/custom_design/gcd/user_proj_example/config.json $CUPF/openlane/user_proj_example/config.json
-#cd openlane
 make -d user_proj_example 2>&1 | tee $LF/mpw-8c-user_proj_example.log
 make -d user_project_wrapper 2>&1 | tee $LF/mpw-8c-user_project_wrapper.log
 
 # Run gate level simulation (it will take 2~3 hours@i9/64GB)
-#cd ..
-#export SIM=GL
 make -d verify-la_test1-gl 2>&1 | tee $LF/mpw-8c-verify-la_test1-gl.log
 
 # Run gate level static timing verifier

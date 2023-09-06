@@ -42,10 +42,10 @@ export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
 export PDK_ROOT=$(pwd)/dependencies/pdks
 export PDK=sky130A
 
-make -d setup 2>&1 | tee $LF/mpw-8c-make-steup.log
+#make -d setup 2>&1 | tee $LF/mpw-8c-make-steup.log
 
 # Run RTL simulation
-cp $FFF/rtl/user/rtl/user_project_wrapper.vo $CUPF/verilog/rtl/user_project_wrapper.vo
+cp $FFF/rtl/user/rtl/user_project_wrapper.v $CUPF/verilog/rtl/user_project_wrapper.v
 cp $FFF/rtl/user/rtl/fsic.vo $CUPF/verilog/rtl/fsic.vo
 cp $FFF/rtl/user/axilite_axis/rtl/axilite_master.sv $CUPF/verilog/rtl/axilite_master.sv
 cp $FFF/rtl/user/axilite_axis/rtl/axilite_slave.sv $CUPF/verilog/rtl/axilite_slave.sv
@@ -60,7 +60,7 @@ cp $FFF/rtl/user/io_serdes/rtl/io_serdes.v $CUPF/verilog/rtl/io_serdes.v
 cp $FFF/rtl/user/io_serdes/rtl/fsic_coreclk_phase_cnt.v $CUPF/verilog/rtl/fsic_coreclk_phase_cnt.v
 cp $FFF/rtl/user/io_serdes/rtl/fsic_io_serdes_rx.v $CUPF/verilog/rtl/fsic_io_serdes_rx.v
 cp $FFF/rtl/user/mprj_io/rtl/mprj_io.sv $CUPF/verilog/rtl/mprj_io.sv
-cp $FFF/rtl/user_subsys/rtl/user_subsys.all.v $CUPF/verilog/rtl/user_subsys.all.v
+cp $FFF/rtl/user/user_subsys/rtl/user_subsys.all.v $CUPF/verilog/rtl/user_subsys.all.v
 
 # how to define USER_PROJ_IRQ0_EN?
 cp $FAF/verif/vsim/tests/system_test114/system_test114.c $CUPF/verilog/dv/system_test114.c

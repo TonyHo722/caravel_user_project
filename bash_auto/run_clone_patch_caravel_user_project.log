@@ -15,11 +15,19 @@
 + cd /home/tonyho/workspace/debug/patch_caravel_user_project
 + '[' '!' -d /home/tonyho/workspace/debug/patch_caravel_user_project ']'
 + '[' '!' -d /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906 ']'
++ '[' -d /home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab ']'
++ echo '/home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab exist, remove it'
+/home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab exist, remove it
++ rm -rf /home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab
 + '[' '!' -d /home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab ']'
++ echo '/home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab not exist, git clone it'
+/home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab not exist, git clone it
++ git clone https://github.com/TonyHo722/caravel-lab
+Cloning into 'caravel-lab'...
 + '[' '!' -d /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project ']'
 + cd /home/tonyho/workspace/fsic/fsic_fpga
 + git log -1
-+ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-fsic_fpag-git-log.log
++ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-FFF-git-log.log
 commit 3d039533b40038bb18bf7e9dcf3377fd60223548
 Merge: 80885d3 1a01be7
 Author: zack lin <chickentornado@gmail.com>
@@ -28,7 +36,7 @@ Date:   Wed Aug 30 07:15:45 2023 +0800
     Merge branch 'main' of github.com:bol-edu/fsic_fpga
 + cd /home/tonyho/workspace/fsic/fsic_asic
 + git log -1
-+ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-fsic_asic-git-log.log
++ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-FAF-git-log.log
 commit 1c313fdf1c7b0f13a2beaf4f144283151c47fe56
 Author: tonyho <TonyHo@via.com.tw>
 Date:   Tue Aug 29 17:13:22 2023 +0800
@@ -36,12 +44,12 @@ Date:   Tue Aug 29 17:13:22 2023 +0800
     add AS CC mprj_io module code
 + cd /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project
 + git log -1
-+ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-caravel_user_project-git-log.log
-commit 1fce03908c283d9e958a89dc2f4bfcd11d903ff9
++ tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-CUPF-git-log.log
+commit 49af7536e4de6f7816a1e9d361de5e7d15293c68
 Author: tonyho <TonyHo@via.com.tw>
-Date:   Mon Sep 4 21:55:09 2023 +0800
+Date:   Wed Sep 6 19:05:31 2023 +0800
 
-    patch issue - Makefile:216: *** missing separator.  Stop.
+    enable makefile debug
 + mkdir dependencies
 mkdir: cannot create directory ‘dependencies’: File exists
 ++ pwd
@@ -70,12 +78,14 @@ mkdir: cannot create directory ‘dependencies’: File exists
 + cp /home/tonyho/workspace/fsic/fsic_fpga/rtl/user/user_subsys/rtl/user_subsys.all.v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/rtl/user_subsys.all.v
 + mkdir /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114
 mkdir: cannot create directory ‘/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114’: File exists
++ cp /home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1_debug-rtl/Makefile /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114/Makefile
 + cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test114/system_test114.c /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114/system_test114.c
-+ cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test114/top_bench.sv /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114/top_bench.sv
++ cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test114/top_bench.sv /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test114/system_test114_tb.sv
 + mkdir /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111
 mkdir: cannot create directory ‘/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111’: File exists
++ cp /home/tonyho/workspace/debug/patch_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1_debug-rtl/Makefile /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111/Makefile
 + cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test111/system_test111.c /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111/system_test111.c
-+ cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test111/top_bench.sv /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111/top_bench.sv
++ cp /home/tonyho/workspace/fsic/fsic_asic/verif/vsim/tests/system_test111/top_bench.sv /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111/system_test111_tb.sv
 + make -d simenv
 + tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-simenv.log
 GNU Make 4.2.1
@@ -99,14 +109,14 @@ Considering target file 'simenv'.
  Finished prerequisites of target file 'simenv'.
 Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x55746f21ecd0 (simenv) PID 484429 on the chain.
-Live child 0x55746f21ecd0 (simenv) PID 484429 
+Putting child 0x564bb6a2cb30 (simenv) PID 810111 on the chain.
+Live child 0x564bb6a2cb30 (simenv) PID 810111 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x55746f21ecd0 PID 484429 
-Removing child 0x55746f21ecd0 PID 484429 from chain.
+Reaping winning child 0x564bb6a2cb30 PID 810111 
+Removing child 0x564bb6a2cb30 PID 810111 from chain.
 Successfully remade target file 'simenv'.
 + make -d verify-system_test111-rtl
 + tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-verify-system_test111-rtl.log
@@ -133,22 +143,327 @@ Considering target file 'verify-system_test111-rtl'.
    Finished prerequisites of target file 'simenv'.
   Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x5597d7f2bce0 (simenv) PID 484494 on the chain.
-Live child 0x5597d7f2bce0 (simenv) PID 484494 
+Putting child 0x56386556bb40 (simenv) PID 810179 on the chain.
+Live child 0x56386556bb40 (simenv) PID 810179 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x5597d7f2bce0 PID 484494 
-Removing child 0x5597d7f2bce0 PID 484494 from chain.
+Reaping winning child 0x56386556bb40 PID 810179 
+Removing child 0x56386556bb40 PID 810179 from chain.
   Successfully remade target file 'simenv'.
  Finished prerequisites of target file 'verify-system_test111-rtl'.
 Must remake target 'verify-system_test111-rtl'.
-docker run -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TARGET_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e PDK_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -e CARAVEL_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TOOLS=/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937 -e DESIGNS=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e USER_PROJECT_VERILOG=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog -e PDK=sky130A -e CORE_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog -e CARAVEL_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel/verilog -e MCW_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper -u $(id -u $USER):$(id -g $USER) efabless/dv:latest sh -c "source ~/.bashrc && cd /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111 && export SIM=RTL && make"
-Putting child 0x5597d7f2ffd0 (verify-system_test111-rtl) PID 484550 on the chain.
-Live child 0x5597d7f2ffd0 (verify-system_test111-rtl) PID 484550 
-make: *** No targets specified and no makefile found.  Stop.
-Reaping losing child 0x5597d7f2ffd0 PID 484550 
+docker run -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TARGET_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e PDK_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -e CARAVEL_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TOOLS=/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937 -e DESIGNS=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e USER_PROJECT_VERILOG=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog -e PDK=sky130A -e CORE_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog -e CARAVEL_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel/verilog -e MCW_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper -u $(id -u $USER):$(id -g $USER) efabless/dv:latest sh -c "source ~/.bashrc && cd /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111 && export SIM=RTL && make -d"
+Putting child 0x56386556fe30 (verify-system_test111-rtl) PID 810234 on the chain.
+Live child 0x56386556fe30 (verify-system_test111-rtl) PID 810234 
+GNU Make 3.82
+Built for x86_64-redhat-linux-gnu
+Copyright (C) 2010  Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Reading makefile `Makefile'...
+Reading makefile `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile' (search path) (no ~ expansion)...
+Reading makefile `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile' (search path) (no ~ expansion)...
+Reading makefile `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile' (search path) (no ~ expansion)...
+Reading makefile `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile' (search path) (no ~ expansion)...
+Updating makefiles....
+ Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile'.
+  Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile'.
+  Trying pattern rule with stem `sim.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile,v'.
+  Trying pattern rule with stem `sim.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/sim.makefile,v'.
+  Trying pattern rule with stem `sim.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/sim.makefile'.
+  Trying pattern rule with stem `sim.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/s.sim.makefile'.
+  Trying pattern rule with stem `sim.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/SCCS/s.sim.makefile'.
+  No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile'.
+  Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile'.
+ No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile'.
+ Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile'.
+  Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile'.
+  Trying pattern rule with stem `cpu.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile,v'.
+  Trying pattern rule with stem `cpu.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/cpu.makefile,v'.
+  Trying pattern rule with stem `cpu.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/cpu.makefile'.
+  Trying pattern rule with stem `cpu.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/s.cpu.makefile'.
+  Trying pattern rule with stem `cpu.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/SCCS/s.cpu.makefile'.
+  No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile'.
+  Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile'.
+ No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/cpu.makefile'.
+ Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile'.
+  Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile'.
+  Trying pattern rule with stem `var.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile,v'.
+  Trying pattern rule with stem `var.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/var.makefile,v'.
+  Trying pattern rule with stem `var.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/var.makefile'.
+  Trying pattern rule with stem `var.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/s.var.makefile'.
+  Trying pattern rule with stem `var.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/SCCS/s.var.makefile'.
+  No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile'.
+  Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile'.
+ No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/var.makefile'.
+ Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile'.
+  Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile'.
+  Trying pattern rule with stem `env.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile,v'.
+  Trying pattern rule with stem `env.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/env.makefile,v'.
+  Trying pattern rule with stem `env.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/RCS/env.makefile'.
+  Trying pattern rule with stem `env.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/s.env.makefile'.
+  Trying pattern rule with stem `env.makefile'.
+  Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/SCCS/s.env.makefile'.
+  No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile'.
+  Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile'.
+ No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/env.makefile'.
+ Considering target file `Makefile'.
+  Looking for an implicit rule for `Makefile'.
+  Trying pattern rule with stem `Makefile'.
+  Trying implicit prerequisite `Makefile,v'.
+  Trying pattern rule with stem `Makefile'.
+  Trying implicit prerequisite `RCS/Makefile,v'.
+  Trying pattern rule with stem `Makefile'.
+  Trying implicit prerequisite `RCS/Makefile'.
+  Trying pattern rule with stem `Makefile'.
+  Trying implicit prerequisite `s.Makefile'.
+  Trying pattern rule with stem `Makefile'.
+  Trying implicit prerequisite `SCCS/s.Makefile'.
+  No implicit rule found for `Makefile'.
+  Finished prerequisites of target file `Makefile'.
+ No need to remake target `Makefile'.
+Updating goal targets....
+Considering target file `all'.
+ File `all' does not exist.
+  Considering target file `system_test111.vcd'.
+   File `system_test111.vcd' does not exist.
+   Looking for an implicit rule for `system_test111.vcd'.
+   Trying pattern rule with stem `system_test111'.
+   Trying implicit prerequisite `system_test111.vvp'.
+   Trying pattern rule with stem `system_test111.vcd'.
+   Trying implicit prerequisite `system_test111.vcd,v'.
+   Trying pattern rule with stem `system_test111.vcd'.
+   Trying implicit prerequisite `RCS/system_test111.vcd,v'.
+   Trying pattern rule with stem `system_test111.vcd'.
+   Trying implicit prerequisite `RCS/system_test111.vcd'.
+   Trying pattern rule with stem `system_test111.vcd'.
+   Trying implicit prerequisite `s.system_test111.vcd'.
+   Trying pattern rule with stem `system_test111.vcd'.
+   Trying implicit prerequisite `SCCS/s.system_test111.vcd'.
+   Trying pattern rule with stem `system_test111'.
+   Trying implicit prerequisite `system_test111.vvp'.
+   Looking for a rule with intermediate file `system_test111.vvp'.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem `system_test111'.
+    Trying implicit prerequisite `system_test111_tb.v'.
+    Trying implicit prerequisite `system_test111.hex'.
+   Found an implicit rule for `system_test111.vcd'.
+     Considering target file `system_test111_tb.v'.
+      Looking for an implicit rule for `system_test111_tb.v'.
+      Trying pattern rule with stem `system_test111_tb.v'.
+      Trying implicit prerequisite `system_test111_tb.v,v'.
+      Trying pattern rule with stem `system_test111_tb.v'.
+      Trying implicit prerequisite `RCS/system_test111_tb.v,v'.
+      Trying pattern rule with stem `system_test111_tb.v'.
+      Trying implicit prerequisite `RCS/system_test111_tb.v'.
+      Trying pattern rule with stem `system_test111_tb.v'.
+      Trying implicit prerequisite `s.system_test111_tb.v'.
+      Trying pattern rule with stem `system_test111_tb.v'.
+      Trying implicit prerequisite `SCCS/s.system_test111_tb.v'.
+      No implicit rule found for `system_test111_tb.v'.
+      Finished prerequisites of target file `system_test111_tb.v'.
+     No need to remake target `system_test111_tb.v'.
+     Considering target file `system_test111.hex'.
+      Looking for an implicit rule for `system_test111.hex'.
+      Trying pattern rule with stem `system_test111'.
+      Trying implicit prerequisite `system_test111.elf'.
+      Trying pattern rule with stem `system_test111.hex'.
+      Trying implicit prerequisite `system_test111.hex,v'.
+      Trying pattern rule with stem `system_test111.hex'.
+      Trying implicit prerequisite `RCS/system_test111.hex,v'.
+      Trying pattern rule with stem `system_test111.hex'.
+      Trying implicit prerequisite `RCS/system_test111.hex'.
+      Trying pattern rule with stem `system_test111.hex'.
+      Trying implicit prerequisite `s.system_test111.hex'.
+      Trying pattern rule with stem `system_test111.hex'.
+      Trying implicit prerequisite `SCCS/s.system_test111.hex'.
+      Trying pattern rule with stem `system_test111'.
+      Trying implicit prerequisite `system_test111.elf'.
+      Looking for a rule with intermediate file `system_test111.elf'.
+       Avoiding implicit rule recursion.
+       Trying pattern rule with stem `system_test111'.
+       Trying implicit prerequisite `system_test111.c'.
+       Trying rule prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+       Trying rule prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+       Trying rule prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+      Found an implicit rule for `system_test111.hex'.
+        Considering target file `system_test111.c'.
+         Looking for an implicit rule for `system_test111.c'.
+         Trying pattern rule with stem `system_test111'.
+         Trying implicit prerequisite `system_test111.w'.
+         Trying pattern rule with stem `system_test111.c'.
+         Trying implicit prerequisite `system_test111.c,v'.
+         Trying pattern rule with stem `system_test111.c'.
+         Trying implicit prerequisite `RCS/system_test111.c,v'.
+         Trying pattern rule with stem `system_test111.c'.
+         Trying implicit prerequisite `RCS/system_test111.c'.
+         Trying pattern rule with stem `system_test111.c'.
+         Trying implicit prerequisite `s.system_test111.c'.
+         Trying pattern rule with stem `system_test111.c'.
+         Trying implicit prerequisite `SCCS/s.system_test111.c'.
+         Trying pattern rule with stem `system_test111'.
+         Trying implicit prerequisite `system_test111.w'.
+         Looking for a rule with intermediate file `system_test111.w'.
+          Avoiding implicit rule recursion.
+          Trying pattern rule with stem `system_test111.w'.
+          Trying implicit prerequisite `system_test111.w,v'.
+          Trying pattern rule with stem `system_test111.w'.
+          Trying implicit prerequisite `RCS/system_test111.w,v'.
+          Trying pattern rule with stem `system_test111.w'.
+          Trying implicit prerequisite `RCS/system_test111.w'.
+          Trying pattern rule with stem `system_test111.w'.
+          Trying implicit prerequisite `s.system_test111.w'.
+          Trying pattern rule with stem `system_test111.w'.
+          Trying implicit prerequisite `SCCS/s.system_test111.w'.
+         No implicit rule found for `system_test111.c'.
+         Finished prerequisites of target file `system_test111.c'.
+        No need to remake target `system_test111.c'.
+        Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+         Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+         Trying pattern rule with stem `sections.lds'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds,v'.
+         Trying pattern rule with stem `sections.lds'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/sections.lds,v'.
+         Trying pattern rule with stem `sections.lds'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/sections.lds'.
+         Trying pattern rule with stem `sections.lds'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/s.sections.lds'.
+         Trying pattern rule with stem `sections.lds'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/SCCS/s.sections.lds'.
+         No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+         Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+        No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+        Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+         Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+         Trying pattern rule with stem `crt0_vex.S'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S,v'.
+         Trying pattern rule with stem `crt0_vex.S'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/crt0_vex.S,v'.
+         Trying pattern rule with stem `crt0_vex.S'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/crt0_vex.S'.
+         Trying pattern rule with stem `crt0_vex.S'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/s.crt0_vex.S'.
+         Trying pattern rule with stem `crt0_vex.S'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/SCCS/s.crt0_vex.S'.
+         No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+         Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+        No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+        Considering target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+         Looking for an implicit rule for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+         Trying pattern rule with stem `isr'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.w'.
+         Trying pattern rule with stem `isr.c'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c,v'.
+         Trying pattern rule with stem `isr.c'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/isr.c,v'.
+         Trying pattern rule with stem `isr.c'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/isr.c'.
+         Trying pattern rule with stem `isr.c'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/s.isr.c'.
+         Trying pattern rule with stem `isr.c'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/SCCS/s.isr.c'.
+         Trying pattern rule with stem `isr'.
+         Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.w'.
+         Looking for a rule with intermediate file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.w'.
+          Avoiding implicit rule recursion.
+          Trying pattern rule with stem `isr.w'.
+          Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.w,v'.
+          Trying pattern rule with stem `isr.w'.
+          Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/isr.w,v'.
+          Trying pattern rule with stem `isr.w'.
+          Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/RCS/isr.w'.
+          Trying pattern rule with stem `isr.w'.
+          Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/s.isr.w'.
+          Trying pattern rule with stem `isr.w'.
+          Trying implicit prerequisite `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/SCCS/s.isr.w'.
+         No implicit rule found for `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+         Finished prerequisites of target file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+        No need to remake target `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+      Considering target file `system_test111.elf'.
+       File `system_test111.elf' does not exist.
+        Pruning file `system_test111.c'.
+        Pruning file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds'.
+        Pruning file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S'.
+        Pruning file `/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c'.
+       Finished prerequisites of target file `system_test111.elf'.
+      Must remake target `system_test111.elf'.
+Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:37 to update target `system_test111.elf'.
+/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-gcc -g \
+-I/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware \
+-I/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/generated \
+-I/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/ \
+-I/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/common \
+  -march=rv32i      -mabi=ilp32 -D__vexriscv__ \
+-Wl,-Bstatic,-T,/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds,--strip-debug \
+-ffreestanding -nostdlib -o system_test111.elf /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c system_test111.c
+Putting child 0xc0d8a0 (system_test111.elf) PID 22 on the chain.
+Live child 0xc0d8a0 (system_test111.elf) PID 22 
+Reaping winning child 0xc0d8a0 PID 22 
+Removing child 0xc0d8a0 PID 22 from chain.
+      Successfully remade target file `system_test111.elf'.
+      Finished prerequisites of target file `system_test111.hex'.
+      Prerequisite `system_test111.elf' is newer than target `system_test111.hex'.
+     Must remake target `system_test111.hex'.
+Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:50 to update target `system_test111.hex'.
+/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-objcopy -O verilog system_test111.elf system_test111.hex 
+Putting child 0xc0d8a0 (system_test111.hex) PID 31 on the chain.
+Live child 0xc0d8a0 (system_test111.hex) PID 31 
+Reaping winning child 0xc0d8a0 PID 31 
+# to fix flash base address
+Live child 0xc0d8a0 (system_test111.hex) PID 32 
+Reaping winning child 0xc0d8a0 PID 32 
+sed -ie 's/@10/@00/g' system_test111.hex
+Live child 0xc0d8a0 (system_test111.hex) PID 33 
+Reaping winning child 0xc0d8a0 PID 33 
+Removing child 0xc0d8a0 PID 33 from chain.
+     Successfully remade target file `system_test111.hex'.
+   Considering target file `system_test111.vvp'.
+    File `system_test111.vvp' does not exist.
+     Pruning file `system_test111_tb.v'.
+     Pruning file `system_test111.hex'.
+    Finished prerequisites of target file `system_test111.vvp'.
+   Must remake target `system_test111.vvp'.
+Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:68 to update target `system_test111.vvp'.
+iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
+        -f/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/includes/includes.rtl.caravel \
+        -f/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/includes/includes.rtl.caravel_user_project -o system_test111.vvp system_test111_tb.v
+Putting child 0xc133c0 (system_test111.vvp) PID 34 on the chain.
+Live child 0xc133c0 (system_test111.vvp) PID 34 
+system_test111_tb.v:281: syntax error
+system_test111_tb.v:282: Syntax in assignment statement l-value.
+system_test111_tb.v:286: syntax error
+system_test111_tb.v:286: error: invalid module item.
+system_test111_tb.v:308: syntax error
+system_test111_tb.v:310: error: invalid module item.
+make: *** [system_test111.vvp] Error 6
+Reaping losing child 0xc133c0 PID 34 
+Removing child 0xc133c0 PID 34 from chain.
+Removing intermediate files...
+rm system_test111.elf
+Reaping losing child 0x56386556fe30 PID 810234 
 make: *** [Makefile:149: verify-system_test111-rtl] Error 2
-Removing child 0x5597d7f2ffd0 PID 484550 from chain.
+Removing child 0x56386556fe30 PID 810234 from chain.
 + exit 1

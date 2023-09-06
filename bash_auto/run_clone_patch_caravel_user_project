@@ -28,15 +28,16 @@ then
 fi    
 
 [ ! -d $LF ] && echo "$LF not exist, create it" && mkdir $LF
-[ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/bol-edu/caravel-lab
+[ -d $CLF ] && echo "$CLF exist, remove it" && rm -rf $CLF
+[ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/TonyHo722/caravel-lab
 [ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b mpw-8c-patch https://github.com/TonyHo722/caravel_user_project
 
 cd $FFF
-git log -1 2>&1 | tee $LF/mpw-8c-fsic_fpag-git-log.log
+git log -1 2>&1 | tee $LF/mpw-8c-FFF-git-log.log
 cd $FAF
-git log -1 2>&1 | tee $LF/mpw-8c-fsic_asic-git-log.log
+git log -1 2>&1 | tee $LF/mpw-8c-FAF-git-log.log
 cd $CUPF
-git log -1 2>&1 | tee $LF/mpw-8c-caravel_user_project-git-log.log
+git log -1 2>&1 | tee $LF/mpw-8c-CUPF-git-log.log
 mkdir dependencies
 export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
 export PDK_ROOT=$(pwd)/dependencies/pdks
@@ -64,11 +65,13 @@ cp $FFF/rtl/user/user_subsys/rtl/user_subsys.all.v $CUPF/verilog/rtl/user_subsys
 
 # how to define USER_PROJ_IRQ0_EN?
 mkdir $CUPF/verilog/dv/system_test114
+cp $CLF/custom_design/gcd/verify-la_test1_debug-rtl/Makefile $CUPF/verilog/dv/system_test114/Makefile
 cp $FAF/verif/vsim/tests/system_test114/system_test114.c $CUPF/verilog/dv/system_test114/system_test114.c
-cp $FAF/verif/vsim/tests/system_test114/top_bench.sv $CUPF/verilog/dv/system_test114/top_bench.sv
+cp $FAF/verif/vsim/tests/system_test114/top_bench.sv $CUPF/verilog/dv/system_test114/system_test114_tb.sv
 mkdir $CUPF/verilog/dv/system_test111
+cp $CLF/custom_design/gcd/verify-la_test1_debug-rtl/Makefile $CUPF/verilog/dv/system_test111/Makefile
 cp $FAF/verif/vsim/tests/system_test111/system_test111.c $CUPF/verilog/dv/system_test111/system_test111.c
-cp $FAF/verif/vsim/tests/system_test111/top_bench.sv $CUPF/verilog/dv/system_test111/top_bench.sv
+cp $FAF/verif/vsim/tests/system_test111/top_bench.sv $CUPF/verilog/dv/system_test111/system_test111_tb.sv
 
 #cp $CLF/custom_design/gcd/user_proj_example/user_proj_example.v $CUPF/verilog/rtl/user_proj_example.v
 #cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1/la_test1.c

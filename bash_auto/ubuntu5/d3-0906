@@ -22,11 +22,14 @@ then
 fi    
 
 [ ! -d $LF ] && echo "$LF not exist, create it" && mkdir $LF
-[ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/bol-edu/caravel-lab
+[ -d $CLF ] && echo "$CLF exist, remove it" && rm -rf $CLF
+[ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/TonyHo722/caravel-lab
 [ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b mpw-8c-patch https://github.com/TonyHo722/caravel_user_project
 
+cd $CLF
+git log -1 2>&1 | tee $LF/mpw-8c-CLF-git-log.log
 cd $CUPF
-git log -1 2>&1 | tee $LF/mpw-8c-git-log.log
+git log -1 2>&1 | tee $LF/mpw-8c-CUPF-git-log.log
 mkdir dependencies
 export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
 export PDK_ROOT=$(pwd)/dependencies/pdks
@@ -37,8 +40,9 @@ export PDK=sky130A
 # Run RTL simulation
 cp $CLF/custom_design/gcd/user_proj_example/user_proj_example.v $CUPF/verilog/rtl/user_proj_example.v
 mkdir $CUPF/verilog/dv/la_test1_debug
-cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1_debug/la_test1_debug.c
-cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v $CUPF/verilog/dv/la_test1_debug/la_test1_debug_tb.v
+cp $CLF/custom_design/gcd/verify-la_test1_debug-rtl/la_test1_debug.c $CUPF/verilog/dv/la_test1_debug/la_test1_debug.c
+cp $CLF/custom_design/gcd/verify-la_test1_debug-rtl/la_test1_debug_tb.v $CUPF/verilog/dv/la_test1_debug/la_test1_debug_tb.v
+cp $CLF/custom_design/gcd/verify-la_test1_debug-rtl/Makefile $CUPF/verilog/dv/la_test1_debug/Makefile
 make -d simenv 2>&1 | tee $LF/mpw-8c-simenv.log
 make -d verify-la_test1_debug-rtl 2>&1 | tee $LF/mpw-8c-verify-la_test1_debug-rtl.log
 exit 1

@@ -11,14 +11,27 @@
 + cd /home/tonyho/workspace/debug/d3_caravel_user_project
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project ']'
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906 ']'
-+ echo '/home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906 not exist, create it'
-/home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906 not exist, create it
-+ mkdir /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906
++ '[' -d /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab ']'
++ echo '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab exist, remove it'
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab exist, remove it
++ rm -rf /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab ']'
++ echo '/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab not exist, git clone it'
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab not exist, git clone it
++ git clone https://github.com/TonyHo722/caravel-lab
+Cloning into 'caravel-lab'...
 + '[' '!' -d /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project ']'
++ cd /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab
++ git log -1
++ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906/mpw-8c-CLF-git-log.log
+commit f622bd89e21247e2fd885cf022c3a45fa80946ea
+Author: tonyho <TonyHo@via.com.tw>
+Date:   Wed Sep 6 14:41:56 2023 +0800
+
+     add verify-la_test1_debug-rtl
 + cd /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project
 + git log -1
-+ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906/mpw-8c-git-log.log
++ tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906/mpw-8c-CUPF-git-log.log
 commit 03f86bacc99d5bcbb1705f5b17503171c9aa93ad
 Author: tonyho <TonyHo@via.com.tw>
 Date:   Mon Sep 4 21:55:09 2023 +0800
@@ -36,8 +49,10 @@ mkdir: cannot create directory ‘dependencies’: File exists
 + PDK=sky130A
 + cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/user_proj_example/user_proj_example.v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/rtl/user_proj_example.v
 + mkdir /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug
-+ cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1.c /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug/la_test1_debug.c
-+ cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug/la_test1_debug_tb.v
+mkdir: cannot create directory ‘/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug’: File exists
++ cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1_debug-rtl/la_test1_debug.c /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug/la_test1_debug.c
++ cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1_debug-rtl/la_test1_debug_tb.v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug/la_test1_debug_tb.v
++ cp /home/tonyho/workspace/debug/d3_caravel_user_project/caravel-lab/custom_design/gcd/verify-la_test1_debug-rtl/Makefile /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug/Makefile
 + make -d simenv
 + tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906/mpw-8c-simenv.log
 GNU Make 4.2.1
@@ -61,14 +76,14 @@ Considering target file 'simenv'.
  Finished prerequisites of target file 'simenv'.
 Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x55a993e88170 (simenv) PID 505763 on the chain.
-Live child 0x55a993e88170 (simenv) PID 505763 
+Putting child 0x56044689b180 (simenv) PID 609754 on the chain.
+Live child 0x56044689b180 (simenv) PID 609754 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x55a993e88170 PID 505763 
-Removing child 0x55a993e88170 PID 505763 from chain.
+Reaping winning child 0x56044689b180 PID 609754 
+Removing child 0x56044689b180 PID 609754 from chain.
 Successfully remade target file 'simenv'.
 + make -d verify-la_test1_debug-rtl
 + tee /home/tonyho/workspace/debug/d3_caravel_user_project/log-d3-0906/mpw-8c-verify-la_test1_debug-rtl.log
@@ -95,22 +110,56 @@ Considering target file 'verify-la_test1_debug-rtl'.
    Finished prerequisites of target file 'simenv'.
   Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x560a272c8180 (simenv) PID 505828 on the chain.
-Live child 0x560a272c8180 (simenv) PID 505828 
+Putting child 0x557a2dd1e190 (simenv) PID 609819 on the chain.
+Live child 0x557a2dd1e190 (simenv) PID 609819 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x560a272c8180 PID 505828 
-Removing child 0x560a272c8180 PID 505828 from chain.
+Reaping winning child 0x557a2dd1e190 PID 609819 
+Removing child 0x557a2dd1e190 PID 609819 from chain.
   Successfully remade target file 'simenv'.
  Finished prerequisites of target file 'verify-la_test1_debug-rtl'.
 Must remake target 'verify-la_test1_debug-rtl'.
 docker run -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks -v /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel:/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel -e TARGET_PATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -e PDK_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/dependencies/pdks -e CARAVEL_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel -e TOOLS=/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937 -e DESIGNS=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project -e USER_PROJECT_VERILOG=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog -e PDK=sky130A -e CORE_VERILOG_PATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog -e CARAVEL_VERILOG_PATH=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog -e MCW_ROOT=/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper -u $(id -u $USER):$(id -g $USER) efabless/dv:latest sh -c "source ~/.bashrc && cd /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/dv/la_test1_debug && export SIM=RTL && make"
-Putting child 0x560a272cc6c0 (verify-la_test1_debug-rtl) PID 505885 on the chain.
-Live child 0x560a272cc6c0 (verify-la_test1_debug-rtl) PID 505885 
-make: *** No targets specified and no makefile found.  Stop.
-Reaping losing child 0x560a272cc6c0 PID 505885 
-make: *** [Makefile:149: verify-la_test1_debug-rtl] Error 2
-Removing child 0x560a272cc6c0 PID 505885 from chain.
+Putting child 0x557a2dd226d0 (verify-la_test1_debug-rtl) PID 609914 on the chain.
+Live child 0x557a2dd226d0 (verify-la_test1_debug-rtl) PID 609914 
+/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-gcc -g \
+-I/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware \
+-I/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/generated \
+-I/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/ \
+-I/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/common \
+  -march=rv32i      -mabi=ilp32 -D__vexriscv__ \
+-DUSER_PROJ_IRQ0_EN \
+-Wl,-Bstatic,-T,/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds,--strip-debug \
+-ffreestanding -nostdlib -o la_test1_debug.elf /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S /home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c la_test1_debug.c
+/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-objcopy -O verilog la_test1_debug.elf la_test1_debug.hex 
+# to fix flash base address
+sed -ie 's/@10/@00/g' la_test1_debug.hex
+iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
+        -f/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/includes/includes.rtl.caravel \
+        -f/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/verilog/includes/includes.rtl.caravel_user_project -o la_test1_debug.vvp la_test1_debug_tb.v
+/home/tonyho/workspace/debug/d3_caravel_user_project/caravel_user_project/caravel/verilog/rtl/caravel.v:363: warning: input port clock is coerced to inout.
+vvp  la_test1_debug.vvp
+Reading la_test1_debug.hex
+la_test1_debug.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+FST info: dumpfile la_test1_debug.vcd opened for output.
+LA Test seq_gcd(10312050, 29460792)=138 started
+LA Test seq_gcd(10312050, 29460792)=138 passed
+LA Test seq_gcd(1993627629, 1177417612)=7 started
+LA Test seq_gcd(1993627629, 1177417612)=7 passed
+LA Test seq_gcd(2097015289, 3812041926)=1 started
+LA Test seq_gcd(2097015289, 3812041926)=1 passed
+LA Test seq_gcd(1924134885, 3151131255)=135 started
+LA Test seq_gcd(1924134885, 3151131255)=135 passed
+LA Test seq_gcd(992211318, 512609597)=1 started
+LA Test seq_gcd(992211318, 512609597)=1 passed
+la_test1_debug_tb.v:189: $finish called at 2569612500 (1ps)
+mv la_test1_debug.vcd RTL-la_test1_debug.vcd
+/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-objdump -d -S la_test1_debug.elf > la_test1_debug.lst
+rm la_test1_debug.elf la_test1_debug.vvp
+Reaping winning child 0x557a2dd226d0 PID 609914 
+Removing child 0x557a2dd226d0 PID 609914 from chain.
+Successfully remade target file 'verify-la_test1_debug-rtl'.
 + exit 1

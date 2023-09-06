@@ -109,14 +109,14 @@ Considering target file 'simenv'.
  Finished prerequisites of target file 'simenv'.
 Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x564bb6a2cb30 (simenv) PID 810111 on the chain.
-Live child 0x564bb6a2cb30 (simenv) PID 810111 
+Putting child 0x556404a9eb30 (simenv) PID 820922 on the chain.
+Live child 0x556404a9eb30 (simenv) PID 820922 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x564bb6a2cb30 PID 810111 
-Removing child 0x564bb6a2cb30 PID 810111 from chain.
+Reaping winning child 0x556404a9eb30 PID 820922 
+Removing child 0x556404a9eb30 PID 820922 from chain.
 Successfully remade target file 'simenv'.
 + make -d verify-system_test111-rtl
 + tee /home/tonyho/workspace/debug/patch_caravel_user_project/log-0906/mpw-8c-verify-system_test111-rtl.log
@@ -143,20 +143,20 @@ Considering target file 'verify-system_test111-rtl'.
    Finished prerequisites of target file 'simenv'.
   Must remake target 'simenv'.
 docker pull efabless/dv:latest
-Putting child 0x56386556bb40 (simenv) PID 810179 on the chain.
-Live child 0x56386556bb40 (simenv) PID 810179 
+Putting child 0x5633ae370b40 (simenv) PID 820993 on the chain.
+Live child 0x5633ae370b40 (simenv) PID 820993 
 latest: Pulling from efabless/dv
 Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
 Status: Image is up to date for efabless/dv:latest
 docker.io/efabless/dv:latest
-Reaping winning child 0x56386556bb40 PID 810179 
-Removing child 0x56386556bb40 PID 810179 from chain.
+Reaping winning child 0x5633ae370b40 PID 820993 
+Removing child 0x5633ae370b40 PID 820993 from chain.
   Successfully remade target file 'simenv'.
  Finished prerequisites of target file 'verify-system_test111-rtl'.
 Must remake target 'verify-system_test111-rtl'.
 docker run -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -v /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel:/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TARGET_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e PDK_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/dependencies/pdks -e CARAVEL_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel -e TOOLS=/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937 -e DESIGNS=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project -e USER_PROJECT_VERILOG=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog -e PDK=sky130A -e CORE_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog -e CARAVEL_VERILOG_PATH=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/caravel/verilog -e MCW_ROOT=/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper -u $(id -u $USER):$(id -g $USER) efabless/dv:latest sh -c "source ~/.bashrc && cd /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/dv/system_test111 && export SIM=RTL && make -d"
-Putting child 0x56386556fe30 (verify-system_test111-rtl) PID 810234 on the chain.
-Live child 0x56386556fe30 (verify-system_test111-rtl) PID 810234 
+Putting child 0x5633ae374e30 (verify-system_test111-rtl) PID 821052 on the chain.
+Live child 0x5633ae374e30 (verify-system_test111-rtl) PID 821052 
 GNU Make 3.82
 Built for x86_64-redhat-linux-gnu
 Copyright (C) 2010  Free Software Foundation, Inc.
@@ -419,26 +419,26 @@ Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/car
   -march=rv32i      -mabi=ilp32 -D__vexriscv__ \
 -Wl,-Bstatic,-T,/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/sections.lds,--strip-debug \
 -ffreestanding -nostdlib -o system_test111.elf /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/crt0_vex.S /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/firmware/isr.c system_test111.c
-Putting child 0xc0d8a0 (system_test111.elf) PID 22 on the chain.
-Live child 0xc0d8a0 (system_test111.elf) PID 22 
-Reaping winning child 0xc0d8a0 PID 22 
-Removing child 0xc0d8a0 PID 22 from chain.
+Putting child 0x13ff840 (system_test111.elf) PID 22 on the chain.
+Live child 0x13ff840 (system_test111.elf) PID 22 
+Reaping winning child 0x13ff840 PID 22 
+Removing child 0x13ff840 PID 22 from chain.
       Successfully remade target file `system_test111.elf'.
       Finished prerequisites of target file `system_test111.hex'.
       Prerequisite `system_test111.elf' is newer than target `system_test111.hex'.
      Must remake target `system_test111.hex'.
 Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:50 to update target `system_test111.hex'.
 /foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937/bin/riscv32-unknown-linux-gnu-objcopy -O verilog system_test111.elf system_test111.hex 
-Putting child 0xc0d8a0 (system_test111.hex) PID 31 on the chain.
-Live child 0xc0d8a0 (system_test111.hex) PID 31 
-Reaping winning child 0xc0d8a0 PID 31 
+Putting child 0x14002d0 (system_test111.hex) PID 31 on the chain.
+Live child 0x14002d0 (system_test111.hex) PID 31 
+Reaping winning child 0x14002d0 PID 31 
 # to fix flash base address
-Live child 0xc0d8a0 (system_test111.hex) PID 32 
-Reaping winning child 0xc0d8a0 PID 32 
+Live child 0x14002d0 (system_test111.hex) PID 32 
+Reaping winning child 0x14002d0 PID 32 
 sed -ie 's/@10/@00/g' system_test111.hex
-Live child 0xc0d8a0 (system_test111.hex) PID 33 
-Reaping winning child 0xc0d8a0 PID 33 
-Removing child 0xc0d8a0 PID 33 from chain.
+Live child 0x14002d0 (system_test111.hex) PID 33 
+Reaping winning child 0x14002d0 PID 33 
+Removing child 0x14002d0 PID 33 from chain.
      Successfully remade target file `system_test111.hex'.
    Considering target file `system_test111.vvp'.
     File `system_test111.vvp' does not exist.
@@ -446,24 +446,28 @@ Removing child 0xc0d8a0 PID 33 from chain.
      Pruning file `system_test111.hex'.
     Finished prerequisites of target file `system_test111.vvp'.
    Must remake target `system_test111.vvp'.
-Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:68 to update target `system_test111.vvp'.
+Invoking recipe from /home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/dv/make/sim.makefile:67 to update target `system_test111.vvp'.
 iverilog -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
+        -g2012 \
         -f/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/mgmt_core_wrapper/verilog/includes/includes.rtl.caravel \
         -f/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/includes/includes.rtl.caravel_user_project -o system_test111.vvp system_test111_tb.v
-Putting child 0xc133c0 (system_test111.vvp) PID 34 on the chain.
-Live child 0xc133c0 (system_test111.vvp) PID 34 
-system_test111_tb.v:281: syntax error
-system_test111_tb.v:282: Syntax in assignment statement l-value.
-system_test111_tb.v:286: syntax error
-system_test111_tb.v:286: error: invalid module item.
-system_test111_tb.v:308: syntax error
-system_test111_tb.v:310: error: invalid module item.
-make: *** [system_test111.vvp] Error 6
-Reaping losing child 0xc133c0 PID 34 
-Removing child 0xc133c0 PID 34 from chain.
+Putting child 0x14031f0 (system_test111.vvp) PID 34 on the chain.
+Live child 0x14031f0 (system_test111.vvp) PID 34 
+/home/tonyho/workspace/debug/patch_caravel_user_project/caravel_user_project/verilog/rtl/user_project_wrapper.v:123: error: Unknown module type: FSIC
+system_test111_tb.v:462: error: Unknown module type: fsic_clock_div
+system_test111_tb.v:475: error: Unknown module type: fpga
+4 error(s) during elaboration.
+*** These modules were missing:
+        FSIC referenced 1 times.
+        fpga referenced 1 times.
+        fsic_clock_div referenced 1 times.
+***
+make: *** [system_test111.vvp] Error 4
+Reaping losing child 0x14031f0 PID 34 
+Removing child 0x14031f0 PID 34 from chain.
 Removing intermediate files...
 rm system_test111.elf
-Reaping losing child 0x56386556fe30 PID 810234 
+Reaping losing child 0x5633ae374e30 PID 821052 
 make: *** [Makefile:149: verify-system_test111-rtl] Error 2
-Removing child 0x56386556fe30 PID 810234 from chain.
+Removing child 0x5633ae374e30 PID 821052 from chain.
 + exit 1

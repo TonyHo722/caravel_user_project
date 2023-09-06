@@ -62,6 +62,7 @@ cp $FFF/rtl/user/io_serdes/rtl/fsic_coreclk_phase_cnt.v $CUPF/verilog/rtl/fsic_c
 cp $FFF/rtl/user/io_serdes/rtl/fsic_io_serdes_rx.v $CUPF/verilog/rtl/fsic_io_serdes_rx.v
 cp $FFF/rtl/user/mprj_io/rtl/mprj_io.sv $CUPF/verilog/rtl/mprj_io.sv
 cp $FFF/rtl/user/user_subsys/rtl/user_subsys.all.v $CUPF/verilog/rtl/user_subsys.all.v
+cp $FFF/rtl/user/logic_analyzer/rtl/logic_anlz.dummy_io.vd $CUPF/verilog/rtl/logic_anlz.dummy_io.vd
 
 # how to define USER_PROJ_IRQ0_EN?
 mkdir $CUPF/verilog/dv/system_test114

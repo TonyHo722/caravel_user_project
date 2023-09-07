@@ -59,7 +59,7 @@
 
 `include "project_define.svh"
 
-module top_bench #( parameter BITS=32,
+module system_test111_tb #( parameter BITS=32,
 		parameter pSERIALIO_WIDTH   = 12,
 		parameter pADDR_WIDTH   = 15,
 		parameter pDATA_WIDTH   = 32,
@@ -236,6 +236,9 @@ module top_bench #( parameter BITS=32,
 
 
    initial begin
+		$dumpfile("system_test111.vcd");
+		$dumpvars(0, system_test111_tb);
+
     `ifdef SYSTEM_test111
     test111();
     `endif //SYSTEM_test111
@@ -454,7 +457,7 @@ module top_bench #( parameter BITS=32,
                .resetb    (RSTB) );
 
 
-  spiflash #(.FILENAME("riscv.hex")) spiflash ( .csb(flash_csb),
+  spiflash #(.FILENAME("system_test111.hex")) spiflash ( .csb(flash_csb),
                                               .clk(flash_clk),
                                               .io0(flash_io0),
                                               .io1(flash_io1),

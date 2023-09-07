@@ -90,7 +90,7 @@ install:
 		rm -rf $(CARAVEL_ROOT) && sleep 2;\
 	fi
 	echo "Installing $(CARAVEL_NAME).."
-	git clone -b $(CARAVEL_TAG) $(CARAVEL_REPO) $(CARAVEL_ROOT) --depth=1
+	git clone -b $(CARAVEL_TAG) $(CARAVEL_REPO) $(CARAVEL_ROOT) 
 
 # Install DV setup
 .PHONY: simenv

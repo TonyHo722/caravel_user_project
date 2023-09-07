@@ -17,6 +17,7 @@
 -v $(USER_PROJECT_VERILOG)/rtl/mprj_io.sv
 -v $(USER_PROJECT_VERILOG)/rtl/sw_caravel.v
 -v $(USER_PROJECT_VERILOG)/rtl/user_subsys.all.v
+-v $(USER_PROJECT_VERILOG)/rtl/logic_anlz.dummy_io.vd
 
 
  

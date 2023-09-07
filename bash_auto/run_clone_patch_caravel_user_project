@@ -52,7 +52,7 @@ cp $FFF/rtl/user/axilite_axis/rtl/axilite_master.sv $CUPF/verilog/rtl/axilite_ma
 cp $FFF/rtl/user/axilite_axis/rtl/axilite_slave.sv $CUPF/verilog/rtl/axilite_slave.sv
 cp $FFF/rtl/user/axilite_axis/rtl/axis_master.sv $CUPF/verilog/rtl/axis_master.sv
 cp $FFF/rtl/user/axilite_axis/rtl/axis_slave.sv $CUPF/verilog/rtl/axis_slave.sv
-cp $FFF/rtl/user/axilite_axis/rtl/axi_ctrl_logic.sv $CUPF/verilog/rtl/axi_ctrl_logic.sv
+#cp $FFF/rtl/user/axilite_axis/rtl/axi_ctrl_logic.sv $CUPF/verilog/rtl/axi_ctrl_logic.sv
 cp $FFF/rtl/user/axilite_axis/rtl/axil_axis.sv $CUPF/verilog/rtl/axil_axis.sv
 cp $FFF/rtl/user/axis_switch/rtl/sw_caravel.v $CUPF/verilog/rtl/sw_caravel.v
 cp $FFF/rtl/user/config_ctrl/rtl/config_ctrl.v $CUPF/verilog/rtl/config_ctrl.v

@@ -308,7 +308,9 @@ module axi_ctrl_logic(
         //aa_index = 10'b0;
         //mb_index = 10'b0;
 
-        next_trans = (next_ss) ? TRANS_SS : TRANS_LS;
+        //next_trans = (next_ss) ? TRANS_SS : TRANS_LS;
+        if ( next_ss==1'b0 ) next_trans = TRANS_SS;
+        else next_trans = TRANS_LS;
 
         if(axi_state == AXI_DECIDE_DEST)begin
             case(next_trans)

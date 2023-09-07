@@ -348,7 +348,8 @@ module top_bench #( parameter BITS=32,
 				$display($time, "=> get soc_to_fpga_mailbox_write_data_captured be : soc_to_fpga_mailbox_write_data_captured =%x, fpga_is_as_tdata=%x", soc_to_fpga_mailbox_write_data_captured, fpga_is_as_tdata);
 				soc_to_fpga_mailbox_write_data_captured = fpga_is_as_tdata ;		//use block assignment
 				$display($time, "=> get soc_to_fpga_mailbox_write_data_captured af : soc_to_fpga_mailbox_write_data_captured =%x, fpga_is_as_tdata=%x", soc_to_fpga_mailbox_write_data_captured, fpga_is_as_tdata);
-				->> soc_to_fpga_mailbox_write_event;
+				#0 -> soc_to_fpga_mailbox_write_event;
+
 				$display($time, "=> soc_to_fpga_mailbox_write_data_captured : send soc_to_fpga_mailbox_write_event");
 
 			end	
@@ -847,7 +848,8 @@ module top_bench #( parameter BITS=32,
 					//read address = h0000_3000 ~ h0000_301F for io serdes
 				//step 2. fpga wait for read completion from soc
 				$display($time, "=> test103_fpga_to_soc_cfg_read :wait for soc_to_fpga_axilite_read_cpl_event");
-				wait(soc_to_fpga_axilite_read_cpl_event.triggered);		//wait for fpga get the read cpl.
+				//tony_debug wait(soc_to_fpga_axilite_read_cpl_event.triggered);		//wait for fpga get the read cpl.
+				@(soc_to_fpga_axilite_read_cpl_event);		//wait for fpga get the read cpl.
 				$display($time, "=> test103_fpga_to_soc_cfg_read : got soc_to_fpga_axilite_read_cpl_event");
 
 				$display($time, "=> test103_fpga_to_soc_cfg_read : soc_to_fpga_axilite_read_cpl_captured=%x", soc_to_fpga_axilite_read_cpl_captured);
@@ -980,7 +982,8 @@ module top_bench #( parameter BITS=32,
 
   task wait_and_check_soc_to_fpga_mailbox_write_event;
     begin
-      wait(soc_to_fpga_mailbox_write_event.triggered);
+      //tony_debug wait(soc_to_fpga_mailbox_write_event.triggered);
+      @(soc_to_fpga_mailbox_write_event);
 			$display($time, "=> wait_and_check_soc_to_fpga_mailbox_write_event : got soc_to_fpga_mailbox_write_event");
 			//Address part
       check_cnt = check_cnt + 1;
@@ -1021,7 +1024,7 @@ module top_bench #( parameter BITS=32,
 				$display($time, "=> get soc_to_fpga_axilite_read_cpl_captured be : soc_to_fpga_axilite_read_cpl_captured =%x, fpga_is_as_tdata=%x", soc_to_fpga_axilite_read_cpl_captured, fpga_is_as_tdata);
 				soc_to_fpga_axilite_read_cpl_captured = fpga_is_as_tdata ;		//use block assignment
 				$display($time, "=> get soc_to_fpga_axilite_read_cpl_captured af : soc_to_fpga_axilite_read_cpl_captured =%x, fpga_is_as_tdata=%x", soc_to_fpga_axilite_read_cpl_captured, fpga_is_as_tdata);
-				->> soc_to_fpga_axilite_read_cpl_event;
+				#0 -> soc_to_fpga_axilite_read_cpl_event;
 				$display($time, "=> soc_to_fpga_axilite_read_cpl_captured : send soc_to_fpga_axilite_read_cpl_event");
 			end	
 		end
@@ -1044,6 +1047,8 @@ module top_bench #( parameter BITS=32,
 
 endmodule // top_bench
 
+  `include "fpga.v"
+  `include "fsic_clock.v"
 `default_nettype wire
 
 

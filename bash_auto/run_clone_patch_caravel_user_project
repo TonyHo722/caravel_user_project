@@ -3,7 +3,7 @@
 set -x # echo on for debug 
 
 # setup your main folder(MF)
-export MF=/home/tonyho/workspace/debug/fsic_caravel_user_project
+export MF=/home/tonyho/workspace/debug/patch_caravel_user_project
 
 # setup your fsic_fpga folder(FFF)
 export FFF=/home/tonyho/workspace/fsic/fsic_fpga
@@ -32,7 +32,7 @@ fi
 [ ! -d $LF ] && echo "$LF not exist, create it" && mkdir $LF
 [ -d $CLF ] && echo "$CLF exist, remove it" && rm -rf $CLF
 [ ! -d $CLF ] && echo "$CLF not exist, git clone it" && git clone https://github.com/TonyHo722/caravel-lab
-[ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b $MPW_TAG https://github.com/TonyHo722/caravel_user_project
+[ ! -d $CUPF ] && echo "$CUPF not exist, git clone it" && git clone -b $MPW_TAG https://github.com/efabless/caravel_user_project
 
 cd $FFF
 git log -1 2>&1 | tee $LF/mpw-8c-FFF-git-log.log
@@ -45,7 +45,7 @@ export OPENLANE_ROOT=$(pwd)/dependencies/openlane_src
 export PDK_ROOT=$(pwd)/dependencies/pdks
 export PDK=sky130A
 
-make -d setup 2>&1 | tee $LF/mpw-8c-make-steup.log
+#make -d setup 2>&1 | tee $LF/mpw-8c-make-steup.log
 
 # Run RTL simulation
 cp $FFF/rtl/user/rtl/user_project_wrapper.v $CUPF/verilog/rtl/user_project_wrapper.v

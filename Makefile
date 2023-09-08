@@ -38,7 +38,7 @@ ifeq ($(PDK),sky130A)
 
 ifeq ($(CARAVEL_LITE),1)
 	CARAVEL_NAME := caravel-lite
-	CARAVEL_REPO := https://github.com/efabless/caravel-lite
+	CARAVEL_REPO := https://github.com/TonyHo722/caravel-lite
 	CARAVEL_TAG := $(MPW_TAG)
 else
 	CARAVEL_NAME := caravel

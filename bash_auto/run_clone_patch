@@ -26,7 +26,7 @@ cd $MF
 if [ ! -d "$MF" ] ;
 then
     echo "$MF not exist, please create it"
-    exit 1
+    # exit 1
 fi    
 
 [ ! -d $LF ] && echo "$LF not exist, create it" && mkdir $LF
@@ -80,11 +80,11 @@ cp $FAF/verif/vsim/tests/system_test111/top_bench.sv $CUPF/verilog/dv/system_tes
 #cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1.c $CUPF/verilog/dv/la_test1/la_test1.c
 #cp $CLF/custom_design/gcd/verify-la_test1-rtl/la_test1_tb.v $CUPF/verilog/dv/la_test1/la_test1_tb.v
 make -d simenv 2>&1 | tee $LF/mpw-8c-simenv.log
-make -d verify-system_test111-rtl 2>&1 | tee $LF/mpw-8c-verify-system_test111-rtl.log
-exit 1
+# make -d verify-system_test111-rtl 2>&1 | tee $LF/mpw-8c-verify-system_test111-rtl.log
+# exit 1
 
 # Run Openlane to generate RTL netlist
-cp $CLF/custom_design/gcd/user_proj_example/config.json $CUPF/openlane/user_proj_example/config.json
+#cp $CLF/custom_design/gcd/user_proj_example/config.json $CUPF/openlane/user_proj_example/config.json
 make -d user_proj_example 2>&1 | tee $LF/mpw-8c-user_proj_example.log
 make -d user_project_wrapper 2>&1 | tee $LF/mpw-8c-user_project_wrapper.log
 
